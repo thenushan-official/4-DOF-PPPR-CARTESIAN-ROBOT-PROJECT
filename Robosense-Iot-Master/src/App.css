@@ -1,0 +1,623 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 9px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #817f7e;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+}
+
+.customsScrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.customsScrollbar::-webkit-scrollbar-thumb {
+  background-color: #1f2539;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.customsScrollbar::-webkit-scrollbar-track {
+  background-color: #111525;
+}
+
+.customsScrollbar1::-webkit-scrollbar {
+  width: 8px;
+}
+
+.customsScrollbar1::-webkit-scrollbar-thumb {
+  background-color: #1f2539;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.customsScrollbar1::-webkit-scrollbar-track {
+  background-color: #111525;
+}
+
+.zoomInOut {
+  animation: zoomInOut 60s infinite linear;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 400ms linear forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.slideDown {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: visible;
+}
+
+.slideUp {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: hidden;
+}
+
+/* SlideDown2: smoothly appear and slide down */
+.SlideDown2 {
+  opacity: 1;
+  transform: translateY(0); /* Slide down to the normal position */
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* SlideUp2: slide up and fade out */
+.slideUp2 {
+  opacity: 0;
+  transform: translateY(-100%); /* Move up by 100% */
+  /* visibility: hidden; */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slideRight {
+  transform: translateX(100%);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: hidden;
+}
+
+.slideLeft {
+  transform: translateX(0px);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: visible;
+}
+
+.slideFromRight {
+  animation: slideFromRight 0.3s forwards linear;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.slideFromRight1 {
+  animation: slideFromRight1 0.3s forwards linear;
+}
+
+@keyframes slideFromRight1 {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.slideFromLeft {
+  animation: slideFromLeft 0.4s forwards linear;
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.slideFromBottom {
+  animation: slideFromBottom 0.4s forwards linear;
+}
+
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.slideFromBottom1 {
+  animation: slideFromBottom1 1.2s forwards linear;
+}
+
+@keyframes slideFromBottom1 {
+  0% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+
+  60% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.animated-component {
+  opacity: 0;
+  transform: translateY(20%);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.animated-component.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animated-componentfromRight {
+  opacity: 0;
+  transform: translateX(10%);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.animated-componentfromRight.is-componentfromRight {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animated-componentfromLeft {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.animated-componentfromLeft.is-visiblefromLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Container for the marquee slider */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Content that will be sliding */
+.marquee-content {
+  animation: marquee 20s linear infinite;
+  width: max-content; /* Ensure content takes only its required space */
+}
+
+/* Individual text elements inside the marquee */
+.marquee-text {
+  padding: 0 2rem;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Animation keyframes to move content continuously */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Start at default position */
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Move half the content width to create the seamless effect */
+  }
+}
+
+.rot {
+  transform: rotateY(90deg); /* Rotate the shape 45 degrees along the Z-axis */
+  /* Optional: Add perspective for a better 3D effect */
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  background: #000;
+}
+
+.closeBtn:hover > .rot {
+  transform: rotateY(0deg);
+  background: #00000000;
+}
+
+.cartChild {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: hidden;
+}
+
+.cartParent:hover > .cartChild {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+  visibility: visible;
+}
+
+.custom-dots {
+  display: flex !important;
+  justify-content: center;
+  gap: 15px; /* Increase this value for more space between dots */
+}
+
+.custom-dots li {
+  margin: 0; /* Remove default margin */
+}
+
+.custom-dots1 {
+  display: flex !important;
+  justify-content: center;
+  gap: 15px; /* Increase this value for more space between dots */
+}
+
+.custom-dots1 li {
+  margin: 0; /* Remove default margin */
+}
+
+.moveOnX {
+  transition: transform 0.5s;
+  animation: moveOnX 5s linear infinite;
+}
+
+@keyframes moveOnX {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translateX(10px);
+  }
+  70% {
+    transform: translateX(-10px);
+  }
+}
+
+.bubbleAnimation {
+  animation: bubbleAnimation 1.3s linear infinite;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.discoverBtn {
+  margin-top: 12px;
+}
+
+.discoverArrow {
+}
+
+.discoverBtn:hover > .discoverArrow {
+  transform: translateX(7px);
+  transition: all 0.3s linear;
+}
+
+.heightDecrease {
+  animation: heightDecrease 0.5s linear forwards;
+}
+
+@keyframes heightDecrease {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+
+.gro:hover > .groChild {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s linear;
+}
+
+/* Left border animation */
+.animated-border::before,
+.animated-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1px; /* Border width */
+  height: 0; /* Initial border height */
+  background-color: #bb9d7b; /* Border color */
+  transition: height 0.5s ease; /* Animation */
+}
+
+/* Position the left border */
+.animated-border::before {
+  left: 0;
+}
+
+/* Position the right border */
+.animated-border::after {
+  right: 0;
+}
+
+/* Hover effect to expand borders */
+.animated-border:hover::before,
+.animated-border:hover::after {
+  height: 100%; /* Expand to full height */
+}
+
+.slope-rectangle1 {
+  clip-path: polygon(0 0%, 100% 0%, 85% 100%, 0 100%);
+}
+
+.slope-rectangle {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0 100%);
+}
+
+.imgBgForCoolLook {
+  background-image: url("https://darkfashion.wpengine.com/wp-content/uploads/2023/09/blog-bg.jpg");
+}
+
+.imgBgForVideo {
+  background-image: url("https://darkfashion.wpengine.com/wp-content/uploads/2023/09/product-bg.jpg");
+}
+
+.imgBgForFooter {
+  background-image: url("https://darkfashion.wpengine.com/wp-content/uploads/2023/07/home-1-footer-bg.jpg");
+}
+
+.btnParent {
+  position: relative;
+  overflow: hidden;
+}
+
+.btnChild1,
+.btnChild2 {
+  transition: all 0.5s linear;
+}
+
+/* Set initial positions */
+.btnChild1 {
+  left: 0;
+}
+
+.btnChild2 {
+  right: 0;
+}
+
+/* Move elements out on hover */
+.btnParent:hover > .btnChild1 {
+  left: -100%;
+}
+
+.btnParent:hover > .btnChild2 {
+  right: -100%;
+}
+
+.btnParent2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.btnChild12,
+.btnChild22 {
+  transition: all 0.4s linear;
+}
+
+/* Set initial positions */
+.btnChild12 {
+  left: -100%;
+}
+
+.btnChild22 {
+  right: -100%;
+}
+
+/* Move elements out on hover */
+.btnParent2:hover > .btnChild12 {
+  left: -10%;
+}
+
+.btnParent2:hover > .btnChild22 {
+  right: -10%;
+}
+
+.moveUpNDown {
+  animation: moveUpNDown 60s linear infinite;
+}
+
+.moveUpNDown:hover {
+  animation-play-state: paused; /* Pauses the animation on hover */
+}
+
+@keyframes moveUpNDown {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(100px);
+  }
+  60% {
+    transform: translateY(-100px);
+  }
+}
+.moveLeftNRight {
+  animation: moveLeftNRight 40s linear infinite;
+  transform: rotateY(15deg);
+}
+
+@keyframes moveLeftNRight {
+  0%,
+  100% {
+    transform: translateX(0%) rotate(-90deg); /* Combine translateX and rotate */
+  }
+  30% {
+    transform: translateX(500%) rotate(-90deg); /* Combine translateX and rotate */
+  }
+  70% {
+    transform: translateX(-1100%) rotate(-90deg); /* Combine translateX and rotate */
+  }
+}
+.rotatingAmination {
+  animation: rotatingAmination 4s ease-in-out infinite;
+}
+
+.rotatingAminationReverse {
+  animation: rotatingAminationReverse 4s ease-in-out infinite;
+}
+
+@keyframes rotatingAmination {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes rotatingAminationReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-720deg);
+  }
+}
+
+circle {
+  fill: none;
+  stroke-width: 7px;
+}
+
+svg {
+  transform: rotate(180deg);
+}
+
+.element {
+  transition: all 0.4s ease; /* Apply smooth transition */
+}
+
+.right {
+  right: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.loginPage {
+  animation: login 200ms linear forwards;
+}
+
+@keyframes login {
+  0% {
+    display: block;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+
+.alert {
+  animation: alert 500ms ease-in-out infinite;
+}
+
+@keyframes alert {
+  0%,
+  100% {
+    color: rgb(230, 7, 7);
+  }
+  50% {
+    color: #1f2539;
+  }
+}
+
+.alert2 {
+  animation: alert2 800ms ease-in-out infinite;
+}
+
+@keyframes alert2 {
+  0%,
+  100% {
+    color: rgb(243, 232, 12);
+  }
+  50% {
+    color: rgb(116, 138, 28);
+  }
+}
+
+.homeBlur {
+  filter: blur(5px);
+  box-shadow: 0 0 10px black; /* Creates a black shadow */
+  transition: all 300ms;
+}
+
+*::selection {
+  background-color: #637adb;
+}
